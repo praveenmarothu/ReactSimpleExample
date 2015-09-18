@@ -1,0 +1,69 @@
+<html> 
+<body>
+    
+<style>
+
+    div
+    {
+        display:inline-block;
+        position:relative;
+    }
+
+    .redcss
+    {
+        background-color: red;
+        width:50px;
+        height:50px;        
+    }
+    
+    .grncss
+    {
+        background-color: green;
+        width:50px;
+        height:50px;        
+    }
+    
+    .ylocss
+    {
+        background-color: yellow;
+        width:200px;
+        height:200px;        
+    }
+    
+
+</style>
+
+<div id="appdiv"></div>
+
+<script src="https://fb.me/react-with-addons-0.13.3.js"></script>
+<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    
+<script type="text/jsx">
+    var HelloObj= 
+    {
+        displayName: "HelloMessage", 
+
+        render: function() 
+        {
+            return (
+                        <div className="ylocss">
+                            <div className="redcss"></div>
+                            <div className="grncss"></div>
+                        </div>            
+            );
+        }
+    };
+
+
+    var HelloComponent = React.createClass( HelloObj );
+
+    var htmlDomNode    = document.getElementById("appdiv");
+    var virtDomNode    = React.createElement(HelloComponent); 
+
+    React.render( virtDomNode , htmlDomNode );
+
+</script>
+    
+    
+</body>
+</html>
