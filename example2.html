@@ -1,0 +1,43 @@
+<html> 
+<body>
+    
+<style>
+
+    div
+    {
+        display:inline-block;
+        position:relative;
+        background-color: brown;
+        width:200px;
+        height:200px;
+    }
+
+</style>
+
+<div id="appdiv"></div>
+
+<script src="https://fb.me/react-with-addons-0.13.3.js"></script>
+<script>
+    var HelloObj= 
+    {
+        displayName: "HelloMessage", 
+
+        render: function() 
+        {
+            return React.createElement("div" , { id : 'HelloMessageDivId' } );
+        }
+    };
+
+
+    var HelloComponent = React.createClass( HelloObj );
+
+    var htmlDomNode    = document.getElementById("appdiv");
+    var virtDomNode    = React.createElement(HelloComponent); 
+
+    React.render( virtDomNode , htmlDomNode );
+
+</script>
+    
+    
+</body>
+</html>

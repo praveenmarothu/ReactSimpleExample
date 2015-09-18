@@ -1,0 +1,22 @@
+<html> 
+<body>
+    <div id="appdiv"></div>
+
+    <script src="https://fb.me/react-with-addons-0.13.3.min.js"></script>
+    <script>
+        var HelloObj= {
+                        displayName: "HelloMessage", 
+                        render: function() 
+                                {
+                                    return React.createElement("div", null, "Hello ", this.props.name);
+                                }
+                      };
+        
+        var HelloComponent = React.createClass( HelloObj );
+        var domNode        = document.getElementById("appdiv");
+        
+        React.render( React.createElement(HelloComponent, {name: "John"}) , domNode );
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html> 
+<body>
+    <div id="appdiv"></div>
+
+    <script src="https://fb.me/react-with-addons-0.13.3.min.js"></script>
+    <script>
+        var TimerObj= 
+        {
+            displayName    : "Timer", 
+            
+            getInitialState: function() 
+            {
+                return {secondsElapsed: 0};
+            },
+            
+            tick : function() 
+            {
+                this.setState({secondsElapsed: this.state.secondsElapsed + 1});
+            },
+            
+            componentDidMount: function() 
+            {
+                this.interval = setInterval(this.tick, 1000);
+            },
+            
+            componentWillUnmount: function() 
+            {
+                clearInterval(this.interval);
+            },
+            
+            render: function() 
+            {
+                return ( React.createElement("div", null, "Seconds Elapsed: ", this.state.secondsElapsed) );
+            }            
+            
+        };
+        
+        var TimerComponent = React.createClass( TimerObj );
+        
+        var htmlDomNode    = document.getElementById("appdiv");
+        var virtDomNode    = React.createElement(TimerComponent, {name: "John"}); 
+        
+        React.render( virtDomNode , htmlDomNode );
+
+    </script>
+</body>
+</html>
